@@ -401,3 +401,12 @@ flex: 1;
 
 background: #020617;
 }
+#editor {
+width: 100%;
+height: calc(100vh - 70px);
+}
+
+.active-file {
+background: #38bdf8 !important;
+color: black;
+}
