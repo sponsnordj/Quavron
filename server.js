@@ -101,8 +101,7 @@ app.use("/api/search", searchRoutes);
 /* ========================================
 Main Route
 ======================================== */
-
-app.get("/", (req, res) => {
+ => {
 
 res.sendFile(path.join(__dirname, "pages", "index.html"));
 
