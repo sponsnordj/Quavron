@@ -295,5 +295,9 @@ body {
   height: 220px;
   margin-top: 20px;
   border-radius: 12px;
-  background: linear-gradient(135deg,#2563eb,#06b6d4);
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #06b6d4
+  );
 }
