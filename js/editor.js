@@ -1,94 +1,247 @@
-console.log("🧠 Quavron IDE Loaded");
+console.log("🧠 Quavron Editor Initialized");
 
 /* ========================================
-Monaco Editor
+FILE EXPLORER
 ======================================== */
 
-require.config({
-paths: {
-vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs"
-}
-});
-
-require(["vs/editor/editor.main"], function () {
-
-window.editor = monaco.editor.create(
-document.getElementById("editor"),
-{
-
-  value: `<!DOCTYPE html>
-
-<html>
-<head>
-  <title>Quavron</title>
-</head>
-<body>  <h1>Hello From Quavron 🚀</h1></body>
-</html>`,  language: "html",
-
-  theme: "vs-dark",
-
-  automaticLayout: true,
-
-  fontSize: 16,
-
-  minimap: {
-    enabled: true
-  }
-
-}
-
+const fileItems = document.querySelectorAll(
+".file-tree li"
 );
-
-});
-
-/* ========================================
-Buttons
-======================================== */
-
-document
-.getElementById("run-btn")
-.addEventListener("click", () => {
-
-alert("Run System Coming Soon 🚀");
-
-});
-
-document
-.getElementById("save-btn")
-.addEventListener("click", () => {
-
-const code = window.editor.getValue();
-
-console.log(code);
-
-alert("Code Saved");
-
-});
-
-document
-.getElementById("deploy-btn")
-.addEventListener("click", () => {
-
-alert("Deploy System Coming Soon 🚀");
-
-});
-
-/* ========================================
-File Explorer
-======================================== */
-
-const fileItems = document.querySelectorAll(".file-item");
 
 fileItems.forEach(file => {
 
 file.addEventListener("click", () => {
 
 fileItems.forEach(item => {
-  item.classList.remove("active-file");
+  item.style.background = "transparent";
 });
 
-file.classList.add("active-file");
+file.style.background = "#1e293b";
+
+console.log(
+  "Opened File:",
+  file.innerText
+);
 
 });
+
+});
+
+/* ========================================
+TABS SYSTEM
+======================================== */
+
+const tabs = document.querySelectorAll(
+".tab"
+);
+
+tabs.forEach(tab => {
+
+tab.addEventListener("click", () => {
+
+tabs.forEach(item => {
+  item.classList.remove("active-tab");
+});
+
+tab.classList.add("active-tab");
+
+console.log(
+  "Active Tab:",
+  tab.innerText
+);
+
+});
+
+});
+
+/* ========================================
+CODE EDITOR
+======================================== */
+
+const codeEditor = document.querySelector(
+".code-editor"
+);
+
+if (codeEditor) {
+
+codeEditor.addEventListener(
+"input",
+() => {
+
+  console.log(
+    "Code Updated"
+  );
+
+}
+
+);
+
+}
+
+/* ========================================
+RUN BUTTON
+======================================== */
+
+const runButton = document.querySelector(
+".run-btn"
+);
+
+if (runButton) {
+
+runButton.addEventListener(
+"click",
+() => {
+
+  appendTerminalMessage(
+    "> Running project..."
+  );
+
+  setTimeout(() => {
+
+    appendTerminalMessage(
+      "> Project executed successfully 🚀"
+    );
+
+  }, 1000);
+
+}
+
+);
+
+}
+
+/* ========================================
+SAVE BUTTON
+======================================== */
+
+const saveButton = document.querySelector(
+".save-btn"
+);
+
+if (saveButton) {
+
+saveButton.addEventListener(
+"click",
+() => {
+
+  appendTerminalMessage(
+    "> Project saved successfully 💾"
+  );
+
+}
+
+);
+
+}
+
+/* ========================================
+AI BUTTON
+======================================== */
+
+const aiButton = document.querySelector(
+".ai-btn"
+);
+
+if (aiButton) {
+
+aiButton.addEventListener(
+"click",
+() => {
+
+  appendTerminalMessage(
+    "> AI Assistant will be available soon 🤖"
+  );
+
+}
+
+);
+
+}
+
+/* ========================================
+TERMINAL SYSTEM
+======================================== */
+
+const terminalBody = document.querySelector(
+".terminal-body"
+);
+
+function appendTerminalMessage(message) {
+
+if (!terminalBody) return;
+
+const line = document.createElement("p");
+
+line.innerText = message;
+
+terminalBody.appendChild(line);
+
+terminalBody.scrollTop =
+terminalBody.scrollHeight;
+
+}
+
+/* ========================================
+SHORTCUTS
+======================================== */
+
+document.addEventListener(
+"keydown",
+(event) => {
+
+/* CTRL + S */
+
+if (
+  event.ctrlKey &&
+  event.key === "s"
+) {
+
+  event.preventDefault();
+
+  appendTerminalMessage(
+    "> CTRL + S detected — File saved 💾"
+  );
+
+}
+
+/* CTRL + ENTER */
+
+if (
+  event.ctrlKey &&
+  event.key === "Enter"
+) {
+
+  event.preventDefault();
+
+  appendTerminalMessage(
+    "> CTRL + ENTER detected — Running project 🚀"
+  );
+
+}
+
+}
+);
+
+/* ========================================
+AUTO SAVE PLACEHOLDER
+======================================== */
+
+setInterval(() => {
+
+console.log(
+"Auto-save checkpoint..."
+);
+
+}, 30000);
+
+/* ========================================
+INITIALIZATION
+======================================== */
+
+window.addEventListener("load", () => {
+
+appendTerminalMessage(
+"> Quavron IDE Ready"
+);
 
 });
