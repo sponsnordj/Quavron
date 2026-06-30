@@ -6,11 +6,21 @@ return (
 
   <h1>💼 Freelance</h1>
 
-  <p>
+  <div className="cards">
 
-    Find Clients & Jobs
+    <div className="card">
+      React Developer Needed
+    </div>
 
-  </p>
+    <div className="card">
+      Backend API Project
+    </div>
+
+    <div className="card">
+      AI SaaS Startup
+    </div>
+
+  </div>
 
 </div>
 
