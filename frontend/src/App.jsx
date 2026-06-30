@@ -104,7 +104,7 @@ return (
 
       <Editor
 
-        height="500px"
+        height="70vh"
 
         defaultLanguage="javascript"
 
@@ -117,6 +117,20 @@ console.log("Welcome to Quavron 🚀");
 }
 
 hello();`}
+
+        options={{
+
+          fontSize: 16,
+
+          minimap: {
+
+            enabled: false
+
+          },
+
+          automaticLayout: true
+
+        }}
 
       />
 
