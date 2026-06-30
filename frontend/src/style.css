@@ -10,9 +10,79 @@ font-family: Arial, sans-serif;
 
 }
 
-.container {
+.app {
 
-height: 100vh;
+min-height: 100vh;
+
+}
+
+/* NAVBAR */
+
+.navbar {
+
+display: flex;
+
+justify-content: space-between;
+
+align-items: center;
+
+padding: 20px 50px;
+
+background: rgba(255,255,255,0.03);
+
+backdrop-filter: blur(10px);
+
+}
+
+.logo {
+
+font-size: 1.5rem;
+
+font-weight: bold;
+
+}
+
+.nav-links {
+
+display: flex;
+
+gap: 15px;
+
+}
+
+button {
+
+padding: 12px 20px;
+
+border: none;
+
+border-radius: 10px;
+
+background: #1e293b;
+
+color: white;
+
+cursor: pointer;
+
+transition: 0.3s;
+
+}
+
+button:hover {
+
+opacity: 0.8;
+
+}
+
+.primary {
+
+background: #3b82f6;
+
+}
+
+/* HERO */
+
+.hero {
 
 display: flex;
 
@@ -22,18 +92,40 @@ justify-content: center;
 
 align-items: center;
 
+text-align: center;
+
+height: 80vh;
+
+padding: 20px;
+
 }
 
-h1 {
+.hero h1 {
 
 font-size: 4rem;
 
+max-width: 900px;
+
+margin-bottom: 20px;
+
 }
 
-p {
+.hero p {
+
+max-width: 700px;
 
 opacity: 0.7;
 
 font-size: 1.2rem;
+
+margin-bottom: 30px;
+
+}
+
+.hero-buttons {
+
+display: flex;
+
+gap: 20px;
 
 }
