@@ -1,5 +1,4 @@
 import {
-HashRouter,
 Routes,
 Route,
 NavLink
@@ -21,148 +20,144 @@ function App() {
 
 return (
 
-<HashRouter>
+<div className="dashboard">
 
-  <div className="dashboard">
+  {/* SIDEBAR */}
 
-    {/* SIDEBAR */}
+  <aside className="sidebar">
 
-    <aside className="sidebar">
+    <div>
 
-      <div>
+      <h2>🚀 Quavron</h2>
 
-        <h2>🚀 Quavron</h2>
+      <p className="subtitle">
+        Next Generation Platform
+      </p>
 
-        <p className="subtitle">
-          Next Generation Platform
-        </p>
+    </div>
 
-      </div>
+    <nav className="nav">
 
-      <nav className="nav">
+      <h3>PLATFORM</h3>
 
-        <h3>PLATFORM</h3>
+      <ul>
 
-        <ul>
+        <li>
+          <NavLink to="/">
+            🏠 Dashboard
+          </NavLink>
+        </li>
 
-          <li>
-            <NavLink to="/">
-              🏠 Dashboard
-            </NavLink>
-          </li>
+        <li>
+          <NavLink to="/ide">
+            💻 Cloud IDE
+          </NavLink>
+        </li>
 
-          <li>
-            <NavLink to="/ide">
-              💻 Cloud IDE
-            </NavLink>
-          </li>
+        <li>
+          <NavLink to="/courses">
+            📚 Courses
+          </NavLink>
+        </li>
 
-          <li>
-            <NavLink to="/courses">
-              📚 Courses
-            </NavLink>
-          </li>
+        <li>
+          <NavLink to="/community">
+            🌐 Community
+          </NavLink>
+        </li>
 
-          <li>
-            <NavLink to="/community">
-              🌐 Community
-            </NavLink>
-          </li>
+        <li>
+          <NavLink to="/marketplace">
+            🛒 Marketplace
+          </NavLink>
+        </li>
 
-          <li>
-            <NavLink to="/marketplace">
-              🛒 Marketplace
-            </NavLink>
-          </li>
+        <li>
+          <NavLink to="/hosting">
+            ☁ Hosting
+          </NavLink>
+        </li>
 
-          <li>
-            <NavLink to="/hosting">
-              ☁ Hosting
-            </NavLink>
-          </li>
+        <li>
+          <NavLink to="/freelance">
+            💼 Freelance
+          </NavLink>
+        </li>
 
-          <li>
-            <NavLink to="/freelance">
-              💼 Freelance
-            </NavLink>
-          </li>
+        <li>
+          <NavLink to="/analytics">
+            📊 Analytics
+          </NavLink>
+        </li>
 
-          <li>
-            <NavLink to="/analytics">
-              📊 Analytics
-            </NavLink>
-          </li>
+        <li>
+          <NavLink to="/settings">
+            ⚙ Settings
+          </NavLink>
+        </li>
 
-          <li>
-            <NavLink to="/settings">
-              ⚙ Settings
-            </NavLink>
-          </li>
+      </ul>
 
-        </ul>
+    </nav>
 
-      </nav>
+  </aside>
 
-    </aside>
+  {/* MAIN */}
 
-    {/* MAIN */}
+  <main className="main">
 
-    <main className="main">
+    <Routes>
 
-      <Routes>
+      <Route
+        path="/"
+        element={<Dashboard />}
+      />
 
-        <Route
-          path="/"
-          element={<Dashboard />}
-        />
+      <Route
+        path="/ide"
+        element={<IDE />}
+      />
 
-        <Route
-          path="/ide"
-          element={<IDE />}
-        />
+      <Route
+        path="/courses"
+        element={<Courses />}
+      />
 
-        <Route
-          path="/courses"
-          element={<Courses />}
-        />
+      <Route
+        path="/community"
+        element={<Community />}
+      />
 
-        <Route
-          path="/community"
-          element={<Community />}
-        />
+      <Route
+        path="/marketplace"
+        element={<Marketplace />}
+      />
 
-        <Route
-          path="/marketplace"
-          element={<Marketplace />}
-        />
+      <Route
+        path="/hosting"
+        element={<Hosting />}
+      />
 
-        <Route
-          path="/hosting"
-          element={<Hosting />}
-        />
+      <Route
+        path="/freelance"
+        element={<Freelance />}
+      />
 
-        <Route
-          path="/freelance"
-          element={<Freelance />}
-        />
+      <Route
+        path="/analytics"
+        element={<Analytics />}
+      />
 
-        <Route
-          path="/analytics"
-          element={<Analytics />}
-        />
+      <Route
+        path="/settings"
+        element={<Settings />}
+      />
 
-        <Route
-          path="/settings"
-          element={<Settings />}
-        />
+    </Routes>
 
-      </Routes>
+  </main>
 
-    </main>
-
-  </div>
-
-</HashRouter>
+</div>
 
 );
 
