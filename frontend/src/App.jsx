@@ -6,7 +6,7 @@ Routes,
 
 Route,
 
-Link
+NavLink
 
 } from "react-router-dom";
 
@@ -62,81 +62,81 @@ return (
 
           <li>
 
-            <Link to="/">
+            <NavLink to="/">
 
               🏠 Dashboard
 
-            </Link>
+            </NavLink>
 
           </li>
 
           <li>
 
-            <Link to="/ide">
+            <NavLink to="/ide">
 
               💻 Cloud IDE
 
-            </Link>
+            </NavLink>
 
           </li>
 
           <li>
 
-            <Link to="/courses">
+            <NavLink to="/courses">
 
               📚 Courses
 
-            </Link>
+            </NavLink>
 
           </li>
 
           <li>
 
-            <Link to="/community">
+            <NavLink to="/community">
 
               🌐 Community
 
-            </Link>
+            </NavLink>
 
           </li>
 
           <li>
 
-            <Link to="/marketplace">
+            <NavLink to="/marketplace">
 
               🛒 Marketplace
 
-            </Link>
+            </NavLink>
 
           </li>
 
           <li>
 
-            <Link to="/hosting">
+            <NavLink to="/hosting">
 
               ☁ Hosting
 
-            </Link>
+            </NavLink>
 
           </li>
 
           <li>
 
-            <Link to="/freelance">
+            <NavLink to="/freelance">
 
               💼 Freelance
 
-            </Link>
+            </NavLink>
 
           </li>
 
           <li>
 
-            <Link to="/settings">
+            <NavLink to="/settings">
 
               ⚙ Settings
 
-            </Link>
+            </NavLink>
 
           </li>
 
