@@ -3,34 +3,23 @@ const express = require("express");
 const router = express.Router();
 
 /* ========================================
-TEMP FILE SYSTEM
+TEMP FILE STORAGE
 ======================================== */
 
 let files = [
 
 {
 id: 1,
-name: "index.js",
-type: "file",
-language: "javascript",
-content: "console.log('Hello Quavron');",
-createdAt: new Date()
+name: "index.html",
+content: "<h1>Hello Quavron</h1>",
+language: "html"
 },
 
 {
 id: 2,
-name: "styles.css",
-type: "file",
-language: "css",
-content: "body { background: #000; }",
-createdAt: new Date()
-},
-
-{
-id: 3,
-name: "components",
-type: "folder",
-createdAt: new Date()
+name: "style.css",
+content: "body { background: black; }",
+language: "css"
 }
 
 ];
@@ -59,9 +48,8 @@ GET SINGLE FILE
 
 router.get("/:id", (req, res) => {
 
-const file =
-files.find(
-item => item.id == req.params.id
+const file = files.find(
+file => file.id == req.params.id
 );
 
 if (!file) {
@@ -96,9 +84,9 @@ const {
 
 name,
 
-language,
+content,
 
-content
+language
 
 } = req.body;
 
@@ -108,7 +96,7 @@ return res.status(400).json({
 
   success: false,
 
-  message: "File name required"
+  message: "File name is required"
 
 });
 
@@ -120,17 +108,13 @@ id: Date.now(),
 
 name,
 
-type: "file",
-
-language: language || "text",
-
 content: content || "",
 
-createdAt: new Date()
+language: language || "text"
 
 };
 
-files.unshift(newFile);
+files.push(newFile);
 
 res.json({
 
@@ -145,64 +129,13 @@ file: newFile
 });
 
 /* ========================================
-CREATE FOLDER
-======================================== */
-
-router.post("/folder", (req, res) => {
-
-const {
-
-name
-
-} = req.body;
-
-if (!name) {
-
-return res.status(400).json({
-
-  success: false,
-
-  message: "Folder name required"
-
-});
-
-}
-
-const newFolder = {
-
-id: Date.now(),
-
-name,
-
-type: "folder",
-
-createdAt: new Date()
-
-};
-
-files.unshift(newFolder);
-
-res.json({
-
-success: true,
-
-message: "Folder created successfully",
-
-folder: newFolder
-
-});
-
-});
-
-/* ========================================
 UPDATE FILE
 ======================================== */
 
 router.put("/:id", (req, res) => {
 
-const file =
-files.find(
-item => item.id == req.params.id
+const file = files.find(
+file => file.id == req.params.id
 );
 
 if (!file) {
@@ -244,12 +177,11 @@ DELETE FILE
 
 router.delete("/:id", (req, res) => {
 
-const index =
-files.findIndex(
-item => item.id == req.params.id
+const fileIndex = files.findIndex(
+file => file.id == req.params.id
 );
 
-if (index === -1) {
+if (fileIndex === -1) {
 
 return res.status(404).json({
 
@@ -262,7 +194,7 @@ return res.status(404).json({
 }
 
 const deletedFile =
-files.splice(index, 1);
+files.splice(fileIndex, 1);
 
 res.json({
 
@@ -271,53 +203,6 @@ success: true,
 message: "File deleted successfully",
 
 deletedFile
-
-});
-
-});
-
-/* ========================================
-FILE SEARCH
-======================================== */
-
-router.get("/search/query", (req, res) => {
-
-const query =
-req.query.q?.toLowerCase() || "";
-
-const results =
-files.filter(file =>
-file.name
-.toLowerCase()
-.includes(query)
-);
-
-res.json({
-
-success: true,
-
-total: results.length,
-
-results
-
-});
-
-});
-
-/* ========================================
-RECENT FILES
-======================================== */
-
-router.get("/recent/all", (req, res) => {
-
-const recentFiles =
-files.slice(0, 5);
-
-res.json({
-
-success: true,
-
-recentFiles
 
 });
 
