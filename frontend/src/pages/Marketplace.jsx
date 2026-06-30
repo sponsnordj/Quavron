@@ -6,11 +6,21 @@ return (
 
   <h1>🛒 Marketplace</h1>
 
-  <p>
+  <div className="cards">
 
-    Extensions & Templates Store
+    <div className="card">
+      VS Code Theme Pack
+    </div>
 
-  </p>
+    <div className="card">
+      React Templates
+    </div>
+
+    <div className="card">
+      AI Extensions
+    </div>
+
+  </div>
 
 </div>
 
