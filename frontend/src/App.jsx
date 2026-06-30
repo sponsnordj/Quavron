@@ -1,6 +1,6 @@
 import {
 
-BrowserRouter,
+HashRouter,
 
 Routes,
 
@@ -32,7 +32,7 @@ function App() {
 
 return (
 
-<BrowserRouter>
+<HashRouter>
 
   <div className="dashboard">
 
