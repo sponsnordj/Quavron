@@ -93,7 +93,8 @@ res.status(500).json({
 success: false,
 
 message: "Internal Server Error"
-
+const authRoutes =
+  require("./routes/auth");
 });
 
 });
