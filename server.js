@@ -236,7 +236,19 @@ SERVER
 const PORT =
 process.env.PORT || 5000;
 
-app.listen(PORT, () => {
+const server = http.createServer(app);
+
+/* ========================================
+SOCKET INIT
+======================================== */
+
+initSocket(server);
+
+/* ========================================
+SERVER START
+======================================== */
+
+server.listen(PORT, () => {
 
 console.log(
 
