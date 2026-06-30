@@ -1,48 +1,10 @@
+import { useState } from "react";
 import Editor from "@monaco-editor/react";
 
 function IDE() {
-  return (
-    <div className="ide-layout">
 
-      {/* LEFT FILES */}
-      <div className="files-panel">
-
-        <h3>FILES</h3>
-
-        <div className="file active">
-          📄 App.jsx
-        </div>
-
-        <div className="file">
-          📄 main.jsx
-        </div>
-
-        <div className="file">
-          📄 style.css
-        </div>
-
-        <div className="file">
-          📄 package.json
-        </div>
-
-      </div>
-
-      {/* CENTER EDITOR */}
-      <div className="editor-panel">
-
-        <div className="editor-topbar">
-          <span>App.jsx</span>
-
-          <button className="run-btn">
-            ▶ Run
-          </button>
-        </div>
-
-        <Editor
-          height="500px"
-          defaultLanguage="javascript"
-          theme="vs-dark"
-          defaultValue={`export default function App() {
+  const files = {
+    "App.jsx": `export default function App() {
 
   return (
     <h1>
@@ -50,7 +12,87 @@ function IDE() {
     </h1>
   );
 
-}`}
+}`,
+
+    "main.jsx": `import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+
+ReactDOM.createRoot(
+  document.getElementById("root")
+).render(<App />);`,
+
+    "style.css": `body {
+  background: #0f172a;
+  color: white;
+}`,
+
+    "package.json": `{
+  "name": "quavron"
+}`
+  };
+
+  const [activeFile, setActiveFile] =
+    useState("App.jsx");
+
+  const [code, setCode] =
+    useState(files["App.jsx"]);
+
+  const openFile = (file) => {
+    setActiveFile(file);
+    setCode(files[file]);
+  };
+
+  return (
+
+    <div className="ide-layout">
+
+      {/* FILES */}
+
+      <div className="files-panel">
+
+        <h3>FILES</h3>
+
+        {Object.keys(files).map((file) => (
+
+          <div
+            key={file}
+            className={
+              activeFile === file
+                ? "file active"
+                : "file"
+            }
+            onClick={() => openFile(file)}
+          >
+            📄 {file}
+          </div>
+
+        ))}
+
+      </div>
+
+      {/* EDITOR */}
+
+      <div className="editor-panel">
+
+        <div className="editor-topbar">
+
+          <span>{activeFile}</span>
+
+          <button className="run-btn">
+            ▶ Run
+          </button>
+
+        </div>
+
+        <Editor
+          height="500px"
+          language="javascript"
+          theme="vs-dark"
+          value={code}
+          onChange={(value) =>
+            setCode(value)
+          }
         />
 
         {/* TERMINAL */}
@@ -71,13 +113,18 @@ function IDE() {
               VITE v5.4 ready 🚀
             </p>
 
+            <p>
+              localhost:5173 running...
+            </p>
+
           </div>
 
         </div>
 
       </div>
 
-      {/* RIGHT AI */}
+      {/* AI */}
+
       <div className="ai-sidebar">
 
         <div className="ai-header">
@@ -87,15 +134,15 @@ function IDE() {
         <div className="ai-chat">
 
           <div className="ai-message">
-            AI: Welcome to Quavron AI 🚀
+            AI: Welcome to Quavron 🚀
           </div>
 
           <div className="ai-message user">
-            You: Create React Login Page
+            You: Create Login Page
           </div>
 
           <div className="ai-message">
-            AI: Generating secure login component...
+            AI: Generating React Component...
           </div>
 
         </div>
@@ -116,6 +163,7 @@ function IDE() {
       </div>
 
     </div>
+
   );
 }
 
