@@ -454,3 +454,30 @@ body {
   border: none;
   background: white;
 }
+/* TABS */
+
+.tabs {
+  display: flex;
+  background: #0f172a;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  overflow-x: auto;
+}
+
+.tab {
+  padding: 12px 20px;
+  cursor: pointer;
+  color: #94a3b8;
+  border-right: 1px solid rgba(255,255,255,0.05);
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  background: #1e293b;
+  color: white;
+}
+
+.active-tab {
+  background: #2563eb;
+  color: white;
+}
