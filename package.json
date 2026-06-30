@@ -1,16 +1,11 @@
 {
 "name": "quavron",
+
 "version": "1.0.0",
+
 "description": "Quavron Cloud IDE Platform",
+
 "main": "server.js",
-
-"scripts": {
-
-"start": "node server.js",
-
-"dev": "node server.js"
-
-},
 
 "keywords": [
 
@@ -45,5 +40,4 @@
 "socket.io": "^4.8.1"
 
 }
-
 }
