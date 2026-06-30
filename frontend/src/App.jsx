@@ -12,21 +12,21 @@ return (
 
     <h2>🚀 Quavron</h2>
 
-    <ul>
+    <div className="explorer">  <h3>EXPLORER</h3>  <ul><li>📁 src</li>
 
-      <li>🏠 Dashboard</li>
+<li className="nested">📄 App.jsx</li>
 
-      <li>📁 Projects</li>
+<li className="nested">📄 main.jsx</li>
 
-      <li>🤖 AI Assistant</li>
+<li>📁 public</li>
 
-      <li>💻 Terminal</li>
+<li className="nested">📄 favicon.ico</li>
 
-      <li>☁ Deploy</li>
+<li>📄 package.json</li>
 
-      <li>⚙ Settings</li>
+<li>📄 vite.config.js</li>
 
-    </ul>
+  </ul></div>
 
   </aside>
 
