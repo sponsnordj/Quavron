@@ -95,6 +95,7 @@ success: false,
 message: "Internal Server Error"
 const authRoutes =
   require("./routes/auth");
+  app.use("/api/auth", authRoutes);
 });
 
 });
