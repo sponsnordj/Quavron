@@ -1,191 +1,122 @@
-import { useState } from "react";
-
 import Editor from "@monaco-editor/react";
 
 function IDE() {
+  return (
+    <div className="ide-layout">
 
-const [activeFile, setActiveFile] =
-useState("App.jsx");
+      {/* LEFT FILES */}
+      <div className="files-panel">
 
-const files = {
+        <h3>FILES</h3>
 
-"App.jsx":
-
-`export default function App() {
-
-return (
-
-<h1>
-  Welcome To Quavron 🚀
-</h1>
-
-);
-
-}`,
-
-"main.jsx":
-
-`import React from "react";
-
-import ReactDOM from "react-dom/client";
-
-import App from "./App";
-
-ReactDOM.createRoot(
-document.getElementById("root")
-).render(
-
-  <App />);`,
-
-"style.css":
-
-`body {
-
-background: #0f172a;
-
-color: white;
-
-}`
-
-};
-
-return (
-
-<div>
-
-  <h1>💻 Cloud IDE</h1>
-
-  <p>
-    AI Powered Development Environment
-  </p>
-
-  <div className="ide-layout">
-
-    {/* FILES */}
-
-    <aside className="ide-sidebar">
-
-      <h3>FILES</h3>
-
-      {Object.keys(files).map((file) => (
-
-        <div
-          key={file}
-          className={
-            activeFile === file
-            ? "file active-file"
-            : "file"
-          }
-
-          onClick={() =>
-            setActiveFile(file)
-          }
-        >
-
-          📄 {file}
-
+        <div className="file active">
+          📄 App.jsx
         </div>
 
-      ))}
+        <div className="file">
+          📄 main.jsx
+        </div>
 
-    </aside>
+        <div className="file">
+          📄 style.css
+        </div>
 
-    {/* EDITOR */}
+        <div className="file">
+          📄 package.json
+        </div>
 
-    <div className="ide-editor">
+      </div>
 
-      {/* TABS */}
+      {/* CENTER EDITOR */}
+      <div className="editor-panel">
 
-      <div className="tabs">
+        <div className="editor-topbar">
+          <span>App.jsx</span>
 
-        <div className="tab active-tab">
+          <button className="run-btn">
+            ▶ Run
+          </button>
+        </div>
 
-          {activeFile}
+        <Editor
+          height="500px"
+          defaultLanguage="javascript"
+          theme="vs-dark"
+          defaultValue={`export default function App() {
+
+  return (
+    <h1>
+      Welcome To Quavron 🚀
+    </h1>
+  );
+
+}`}
+        />
+
+        {/* TERMINAL */}
+
+        <div className="terminal">
+
+          <div className="terminal-header">
+            TERMINAL
+          </div>
+
+          <div className="terminal-body">
+
+            <p>
+              user@quavron:~$ npm run dev
+            </p>
+
+            <p>
+              VITE v5.4 ready 🚀
+            </p>
+
+          </div>
 
         </div>
 
       </div>
 
-      {/* MONACO */}
+      {/* RIGHT AI */}
+      <div className="ai-sidebar">
 
-      <Editor
-        height="500px"
-        theme="vs-dark"
-        defaultLanguage="javascript"
-        value={files[activeFile]}
-      />
+        <div className="ai-header">
+          🤖 Quavron AI
+        </div>
 
-      {/* TERMINAL */}
-{/* AI WORKSPACE */}
+        <div className="ai-chat">
 
-<div className="ai-workspace">  <div className="ai-header">🤖 Quavron AI
+          <div className="ai-message">
+            AI: Welcome to Quavron AI 🚀
+          </div>
 
-  </div>  <div className="ai-chat"><div className="ai-msg ai">
+          <div className="ai-message user">
+            You: Create React Login Page
+          </div>
 
-  <strong>AI:</strong>
-
-  Welcome to Quavron AI 🚀
-
-</div>
-
-<div className="ai-msg user">
-
-  <strong>You:</strong>
-
-  Create React Login Page
-
-</div>
-
-<div className="ai-msg ai">
-
-  <strong>AI:</strong>
-
-  Generating secure login component...
-
-</div>
-
-  </div>  <div className="ai-input-box"><input
-  type="text"
-  placeholder="Ask Quavron AI..."
-/>
-
-<button>
-
-  Send
-
-</button>
-
-  </div></div>
-      <div className="terminal">
-
-        <div className="terminal-header">
-
-          TERMINAL
+          <div className="ai-message">
+            AI: Generating secure login component...
+          </div>
 
         </div>
 
-        <div className="terminal-body">
+        <div className="ai-input">
 
-          <p>
-            user@quavron:~$ npm run dev
-          </p>
+          <input
+            type="text"
+            placeholder="Ask Quavron AI..."
+          />
 
-          <p>
-            VITE v5.4 ready 🚀
-          </p>
+          <button>
+            Send
+          </button>
 
         </div>
 
       </div>
 
     </div>
-
-  </div>
-
-</div>
-
-);
-
+  );
 }
 
 export default IDE;
