@@ -197,7 +197,7 @@ transition: 0.3s;
 
 .explorer li:hover {
 
-background: rgba(255,255,255,0.08);
+background: rgba(255,255,255,0.08);}
 /* TERMINAL */
 
 .terminal {
