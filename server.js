@@ -1,10 +1,3 @@
-const http = require("http");
-
-const {
-
-initSocket
-
-} = require("./socket");
 const express = require("express");
 
 const cors = require("cors");
@@ -66,13 +59,23 @@ const filesRoutes =
 require("./routes/files");
 
 /* ========================================
+MIDDLEWARE
+======================================== */
+
+const loggerMiddleware =
+require("./middleware/logger");
+
+const errorMiddleware =
+require("./middleware/error");
+
+/* ========================================
 APP
 ======================================== */
 
 const app = express();
 
 /* ========================================
-MIDDLEWARE
+GLOBAL MIDDLEWARE
 ======================================== */
 
 app.use(cors());
@@ -86,6 +89,8 @@ extended: true
 }));
 
 app.use(morgan("dev"));
+
+app.use(loggerMiddleware);
 
 /* ========================================
 ROOT ROUTE
@@ -115,85 +120,37 @@ status: "Running 🚀"
 API ROUTES
 ======================================== */
 
-app.use(
-"/api/auth",
-authRoutes
-);
+app.use("/api/auth", authRoutes);
 
-app.use(
-"/api/users",
-userRoutes
-);
+app.use("/api/users", userRoutes);
 
-app.use(
-"/api/search",
-searchRoutes
-);
+app.use("/api/search", searchRoutes);
 
-app.use(
-"/api/notifications",
-notificationsRoutes
-);
+app.use("/api/notifications", notificationsRoutes);
 
-app.use(
-"/api/storage",
-storageRoutes
-);
+app.use("/api/storage", storageRoutes);
 
-app.use(
-"/api/deploy",
-deployRoutes
-);
+app.use("/api/deploy", deployRoutes);
 
-app.use(
-"/api/terminal",
-terminalRoutes
-);
+app.use("/api/terminal", terminalRoutes);
 
-app.use(
-"/api/github",
-githubRoutes
-);
+app.use("/api/github", githubRoutes);
 
-app.use(
-"/api/git",
-gitRoutes
-);
+app.use("/api/git", gitRoutes);
 
-app.use(
-"/api/database",
-databaseRoutes
-);
+app.use("/api/database", databaseRoutes);
 
-app.use(
-"/api/ai",
-aiRoutes
-);
+app.use("/api/ai", aiRoutes);
 
-app.use(
-"/api/extensions",
-extensionsRoutes
-);
+app.use("/api/extensions", extensionsRoutes);
 
-app.use(
-"/api/collaboration",
-collaborationRoutes
-);
+app.use("/api/collaboration", collaborationRoutes);
 
-app.use(
-"/api/analytics",
-analyticsRoutes
-);
+app.use("/api/analytics", analyticsRoutes);
 
-app.use(
-"/api/projects",
-projectsRoutes
-);
+app.use("/api/projects", projectsRoutes);
 
-app.use(
-"/api/files",
-filesRoutes
-);
+app.use("/api/files", filesRoutes);
 
 /* ========================================
 404 HANDLER
@@ -215,45 +172,10 @@ message: "Route Not Found"
 ERROR HANDLER
 ======================================== */
 
-app.use((err, req, res, next) => {
-
-console.error(err);
-
-res.status(500).json({
-
-success: false,
-
-message: "Internal Server Error"
-
-});
-
-});
+app.use(errorMiddleware);
 
 /* ========================================
-SERVER
+EXPORT APP
 ======================================== */
 
-const PORT =
-process.env.PORT || 5000;
-
-const server = http.createServer(app);
-
-/* ========================================
-SOCKET INIT
-======================================== */
-
-initSocket(server);
-
-/* ========================================
-SERVER START
-======================================== */
-
-server.listen(PORT, () => {
-
-console.log(
-
-`🚀 Quavron Server running on port ${PORT}`
-
-);
-
-});
+module.exports = app;
