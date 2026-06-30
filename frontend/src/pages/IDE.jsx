@@ -116,7 +116,46 @@ return (
       />
 
       {/* TERMINAL */}
+{/* AI WORKSPACE */}
 
+<div className="ai-workspace">  <div className="ai-header">🤖 Quavron AI
+
+  </div>  <div className="ai-chat"><div className="ai-msg ai">
+
+  <strong>AI:</strong>
+
+  Welcome to Quavron AI 🚀
+
+</div>
+
+<div className="ai-msg user">
+
+  <strong>You:</strong>
+
+  Create React Login Page
+
+</div>
+
+<div className="ai-msg ai">
+
+  <strong>AI:</strong>
+
+  Generating secure login component...
+
+</div>
+
+  </div>  <div className="ai-input-box"><input
+  type="text"
+  placeholder="Ask Quavron AI..."
+/>
+
+<button>
+
+  Send
+
+</button>
+
+  </div></div>
       <div className="terminal">
 
         <div className="terminal-header">
