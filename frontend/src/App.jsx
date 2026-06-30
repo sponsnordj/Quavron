@@ -142,7 +142,49 @@ hello();`}
 
       <div className="terminal-header">
 
-        TERMINAL
+        TERMINAL{/* AI ASSISTANT */}
+
+<section className="ai-panel">  <div className="ai-header">🤖 Quavron AI
+
+  </div>  <div className="ai-body"><div className="ai-message">
+
+  <strong>AI:</strong>
+
+  Welcome to Quavron AI Assistant 🚀
+
+</div>
+
+<div className="ai-message user">
+
+  <strong>You:</strong>
+
+  Create React Login Page
+
+</div>
+
+<div className="ai-message">
+
+  <strong>AI:</strong>
+
+  Generating component...
+
+</div>
+
+  </div>  <div className="ai-input"><input
+
+  type="text"
+
+  placeholder="Ask Quavron AI..."
+
+/>
+
+<button className="primary">
+
+  Send
+
+</button>
+
+  </div></section>
 
       </div>
 
