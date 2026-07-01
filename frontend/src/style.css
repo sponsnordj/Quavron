@@ -1106,3 +1106,64 @@ html {
   }
 
 }
+/* AUTH */
+
+.auth-link {
+
+  text-decoration: none;
+
+  color: white;
+
+  padding: 10px 14px;
+
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.08);
+
+  transition: 0.3s;
+
+  font-size: 14px;
+}
+
+.auth-link:hover {
+
+  background: rgba(255,255,255,0.15);
+}
+
+.register-btn {
+
+  background: #2563eb;
+}
+
+/* TOPBAR RIGHT */
+
+.topbar-right {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+  .topbar-right {
+
+    justify-content: center;
+
+    margin-top: 15px;
+  }
+
+  .auth-link {
+
+    padding: 8px 12px;
+
+    font-size: 13px;
+  }
+
+}
