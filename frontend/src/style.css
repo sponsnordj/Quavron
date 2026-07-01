@@ -398,12 +398,107 @@ body {
 
 /* MOBILE */
 
-@media (max-width: 900px) {
+@media (max-width: 900px) @media (max-width: 900px) {
 
-  .dashboard {
-    flex-direction: column;
-    height: auto;
+  /* SIDEBAR */
+
+  .sidebar {
+
+    position: fixed;
+
+    top: 0;
+
+    left: -260px;
+
+    width: 260px;
+
+    height: 100vh;
+
+    z-index: 999;
+
+    transition: 0.3s;
+
   }
+
+  .sidebar.mobile-open {
+
+    left: 0;
+
+  }
+
+  /* MAIN */
+
+  .main {
+
+    width: 100%;
+
+    padding: 15px;
+
+  }
+
+  /* TOPBAR */
+
+  .topbar {
+
+    padding-left: 60px;
+
+  }
+
+  /* MENU BUTTON */
+
+  .menu-toggle {
+
+    position: fixed;
+
+    top: 15px;
+
+    left: 15px;
+
+    z-index: 1000;
+
+    background: #2563eb;
+
+    border: none;
+
+    color: white;
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 12px;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+  }
+
+  /* IDE */
+
+  .ide-layout {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  /* PREVIEW */
+
+  .preview-frame {
+
+    height: 300px;
+
+  }
+
+  /* PROFILE */
+
+  .profile span {
+
+    display: none;
+
+  }
+
+}
 
   .sidebar {
     width: 100%;
