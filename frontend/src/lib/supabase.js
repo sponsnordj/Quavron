@@ -2,7 +2,7 @@ import { createClient }
 from "@supabase/supabase-js";
 
 const supabaseUrl =
-"YOUR_SUPABASE_URL";
+"https://bxjsfbexfjvqjiaqtmbm.supabase.co";
 
 const supabaseKey =
 "YOUR_SUPABASE_ANON_KEY";
