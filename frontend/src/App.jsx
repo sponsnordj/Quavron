@@ -37,7 +37,16 @@ function App() {
           setMobileMenu(!mobileMenu)
         }
       >
-        ☰
+        ☰{
+  mobileMenu && (
+    <div
+      className="sidebar-overlay"
+      onClick={() =>
+        setMobileMenu(false)
+      }
+    />
+  )
+        }
       </button>
 
       {/* SIDEBAR */}
