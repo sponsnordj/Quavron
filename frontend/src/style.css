@@ -114,16 +114,10 @@ body {
 }
 
 .topbar-right {
-
   display: flex;
-
-  flex-wrap: wrap;
-
   align-items: center;
-
-  justify-content: flex-start;
-
-  gap: 10px;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 /* =========================
@@ -416,6 +410,7 @@ body {
     height: 100vh;
     z-index: 999;
     overflow-y: auto;
+    background: #111827;
   }
 
   .sidebar.mobile-open {
@@ -462,14 +457,20 @@ body {
     display: flex;
     flex-direction: column;
 
-    align-items: stretch;
+    align-items: flex-start;
 
     gap: 15px;
   }
 
+  /* SEARCH */
+
   .search {
+
+    width: 100%;
     max-width: 100%;
   }
+
+  /* RIGHT SIDE */
 
   .topbar-right {
 
@@ -482,7 +483,27 @@ body {
     justify-content: flex-start;
 
     gap: 10px;
+
+    width: 100%;
   }
+
+  /* AUTH BUTTONS */
+
+  .auth-link {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 90px;
+
+    font-size: 14px;
+
+    padding: 10px 14px;
+  }
+
+  /* PROFILE */
 
   .profile span {
     display: none;
@@ -508,13 +529,6 @@ body {
 
   .preview-frame {
     height: 300px;
-  }
-
-  /* AUTH */
-
-  .auth-link {
-    font-size: 14px;
-    padding: 8px 12px;
   }
 }
 
