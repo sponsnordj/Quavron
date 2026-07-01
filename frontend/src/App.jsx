@@ -206,29 +206,42 @@ function App() {
           </div>
 
           <div className="topbar-right">
+<div className="topbar-right">
 
-            <button className="icon-btn">
-              🔔
-            </button>
+  <NavLink
+    to="/login"
+    className="auth-link"
+  >
+    Login
+  </NavLink>
 
-            <button className="icon-btn">
-              🤖
-            </button>
+  <NavLink
+    to="/register"
+    className="auth-link register-btn"
+  >
+    Register
+  </NavLink>
 
-            <div className="profile">
+  <button className="icon-btn">
+    🔔
+  </button>
 
-              <img
-                src="https://i.pravatar.cc/40"
-                alt="profile"
-              />
+  <button className="icon-btn">
+    🤖
+  </button>
 
-              <span>Ahmed</span>
+  <div className="profile">
 
-            </div>
+    <img
+      src="https://i.pravatar.cc/40"
+      alt="profile"
+    />
 
-          </div>
+    <span>Ahmed</span>
 
-        </header>
+  </div>
+
+</div>
 
         {/* ROUTES */}
 
