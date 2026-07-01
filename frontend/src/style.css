@@ -396,113 +396,7 @@ body {
   );
 }
 
-/* MOBILE */
 
- @media (max-width: 900px) {
-
-  /* SIDEBAR */
-
-  .sidebar {
-
-    position: fixed;
-
-    top: 0;
-
-    left: -260px;
-
-    width: 260px;
-
-    height: 100vh;
-
-    z-index: 999;
-
-    transition: 0.3s;
-
-  }
-
-  .sidebar.mobile-open {
-
-    left: 0;
-
-  }
-
-  /* MAIN */
-
-  .main {
-
-    width: 100%;
-
-    padding: 15px;
-
-  }
-
-  /* TOPBAR */
-
-  .topbar {
-
-    padding-left: 60px;
-
-  }
-
-  /* MENU BUTTON */
-
-  .menu-toggle {
-
-    position: fixed;
-
-    top: 15px;
-
-    left: 15px;
-
-    z-index: 1000;
-
-    background: #2563eb;
-
-    border: none;
-
-    color: white;
-
-    width: 45px;
-
-    height: 45px;
-
-    border-radius: 12px;
-
-    font-size: 22px;
-
-    cursor: pointer;
-
-  }
-
-  /* IDE */
-
-  .ide-layout {
-
-    grid-template-columns: 1fr;
-
-  }
-
-  /* PREVIEW */
-
-  .preview-frame {
-
-    height: 300px;
-
-  }
-
-  /* PROFILE */
-
-  .profile span {
-
-    display: none;
-
-  }
-
-}
-.menu-toggle {
-  display: none;
-}
-  
 /* PREVIEW */
 
 .preview-panel {
@@ -955,3 +849,129 @@ html {
   justify-content: space-between;
   align-items: center;
   }
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+.menu-toggle {
+  display: none;
+}
+
+/* OVERLAY */
+
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 998;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+  /* BUTTON */
+
+  .menu-toggle {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+
+    top: 15px;
+    left: 15px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #2563eb;
+    color: white;
+
+    font-size: 24px;
+
+    z-index: 1000;
+
+    cursor: pointer;
+  }
+
+  /* SIDEBAR */
+
+  .sidebar {
+
+    position: fixed;
+
+    top: 0;
+    left: -280px;
+
+    width: 260px;
+    height: 100vh;
+
+    background: #111827;
+
+    z-index: 999;
+
+    transition: 0.3s ease;
+  }
+
+  .sidebar.mobile-open {
+    left: 0;
+  }
+
+  /* MAIN */
+
+  .main {
+
+    width: 100%;
+
+    padding: 80px 15px 15px 15px;
+  }
+
+  /* TOPBAR */
+
+  .topbar {
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 15px;
+  }
+
+  .search {
+    width: 100%;
+  }
+
+  /* IDE */
+
+  .ide-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* PANELS */
+
+  .files-panel,
+  .editor-panel,
+  .preview-panel,
+  .ai-sidebar {
+    width: 100%;
+  }
+
+  /* PREVIEW */
+
+  .preview-frame {
+    height: 300px;
+  }
+
+  /* PROFILE */
+
+  .profile span {
+    display: none;
+  }
+
+}
