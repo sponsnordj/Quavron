@@ -224,19 +224,21 @@ ReactDOM.createRoot(
       {/* FILES */}
 
       <div className="files-panel">
-<div className="explorer-section">
 
-  <p>📁 src</p>
+        <div className="explorer-section">
 
-  <p className="nested">
-    📁 components
-  </p>
+          <p>📁 src</p>
 
-  <p className="nested">
-    📁 pages
-  </p>
+          <p className="nested">
+            📁 components
+          </p>
 
-</div>
+          <p className="nested">
+            📁 pages
+          </p>
+
+        </div>
+
         <div className="files-header">
 
           <h3>FILES</h3>
@@ -335,19 +337,21 @@ ReactDOM.createRoot(
           <div className="terminal-header">
             TERMINAL
           </div>
-{/* STATUS BAR */}
 
-<div className="statusbar">
+          {/* STATUS BAR */}
 
-  <div>
-    🌿 main
-  </div>
+          <div className="statusbar">
 
-  <div>
-    UTF-8 • JavaScript • Vite
-  </div>
+            <div>
+              🌿 main
+            </div>
 
-</div>
+            <div>
+              UTF-8 • JavaScript • Vite
+            </div>
+
+          </div>
+
           <div className="terminal-body">
 
             <p>
@@ -379,9 +383,9 @@ ReactDOM.createRoot(
         </div>
 
         <iframe
-  title="preview"
-  className="preview-frame"
-  srcDoc={`
+          title="preview"
+          className="preview-frame"
+          srcDoc={`
 <html>
 
 <head>
@@ -419,7 +423,9 @@ root.render(<App />);
 
 </html>
 `}
-/>
+        />
+
+      </div>
 
       {/* AI */}
 
